@@ -1,96 +1,48 @@
-import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  Button,
-  ScrollView,
-  TextInput,
-  SafeAreaView,
-  Pressable
-} from "react-native";
-
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View , Image, ScrollView, Pressable, SafeAreaView, Button , TextInput} from 'react-native';
 export default function App() {
-  const callAlert = () => {
-    alert("Button clicked one");
-    alert("Button clicked two");
-  };
-
   return (
-    <SafeAreaView style={helberjuulelt.container}>
-      <ScrollView style={helberjuulelt.scrollView}>
-        <Button
-          title="Click Me"
-          color="#FFFFFF"
-          onPress={() => {
-            callAlert();
-          }}
-        ></Button>
-
-        <Text style={helberjuulelt.goliinText1}>Миний анхны апп!</Text>
-        <Text style={helberjuulelt.goliinText2}>Миний анхны апп!</Text>
-        <Text style={helberjuulelt.goliinText3}>Миний анхны апп!</Text>
-        <Pressable
-          onPress={() => alert("onpress")}
-          onLongPress={() => alert("onlongpress")}
-        >
-          <Image
-            source={require("./assets/favicon.png")}
-            style={helberjuulelt.image}
-          ></Image>
+    <SafeAreaView style ={helber.container}>
+      <ScrollView>
+      <View>
+      
+        <Pressable onPress={()=> alert("onpress")}
+        onLongPress={()=> alert("onlongpress")}>
+        <Image source={require("./assets/1.png")}
+        style={{height:300, width: 300}}></Image>
         </Pressable>
-        <Button onPress={() => alert("Button pressed")} title="Learn More" />
+        <Pressable onPress={()=> alert("narangoo")}
+        onLongPress={()=> alert("zaaa ner ni")}>
+        <Text>helloloooo</Text>
+        </Pressable>
         <TextInput
-          style={helberjuulelt.textInputUsername}
-          placeholder="Хэрэглэчийн нэр оруулааарай"
+          style={helber.input}
+      />
+        <Button title='darchih' onPress={()=>alert('darchihlaaa')} color="#010101"
         />
         <StatusBar style="auto" />
+      </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
 
-const helberjuulelt = StyleSheet.create({
+const helber = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: StatusBar.currentHeight,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-
-  scrollView: {
-    backgroundColor: "black",
-    marginHorizontal: 20,
-  },
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  goliinText1: {
-    fontWeight: 200,
-    fontSize: 100,
-    color: "white",
-  },
-  goliinText2: {
-    fontWeight: 300,
-    fontSize: 72,
-    color: "white",
-  },
-  goliinText3: {
-    fontWeight: 400,
-    fontSize: 40,
-    color: "white",
-  },
-  image: { height: 1300, width: 200 },
-  input: {
-    height: 40,
-    margin: 12,
-    borderWidth: 1,
+  texthuwirgal: {
+    fontWeight: 2100,
+    
+   },
+   input:{
+    height:40,
+    margin:12,
+    borderWidth:1,
     padding: 10,
-  },
-  textInputUsername: {
-    borderWidth: 1,
-    color: "#735284",
-  },
+    borderColor: "black",
+   }
 });
