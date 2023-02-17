@@ -1,48 +1,52 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View , Image, ScrollView, Pressable, SafeAreaView, Button , TextInput} from 'react-native';
+import { View, StyleSheet, SafeAreaView, ScrollView } from 'react-native'
+import React from 'react'
+
 export default function App() {
   return (
-    <SafeAreaView style ={helber.container}>
-      <ScrollView>
-      <View>
-      
-        <Pressable onPress={()=> alert("onpress")}
-        onLongPress={()=> alert("onlongpress")}>
-        <Image source={require("./assets/1.png")}
-        style={{height:300, width: 300}}></Image>
-        </Pressable>
-        <Pressable onPress={()=> alert("narangoo")}
-        onLongPress={()=> alert("zaaa ner ni")}>
-        <Text>helloloooo</Text>
-        </Pressable>
-        <TextInput
-          style={helber.input}
-      />
-        <Button title='darchih' onPress={()=>alert('darchihlaaa')} color="#010101"
-        />
-        <StatusBar style="auto" />
-      </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView horizontal={true}>
+        <View style={styles.draft1}></View>
+        <View style={styles.draft2}></View>
+        <View style={styles.draft3}></View>
       </ScrollView>
     </SafeAreaView>
-  );
+  )
 }
-
-const helber = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "brown",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: 'row',
   },
-  texthuwirgal: {
-    fontWeight: 2100,
-    
-   },
-   input:{
-    height:40,
-    margin:12,
-    borderWidth:1,
-    padding: 10,
-    borderColor: "black",
-   }
-});
+  draft1: {
+    height: 100,
+    width: 100,
+    backgroundColor: "pink",
+    margin: 10,
+
+  },
+  draft2: {
+    height: 100,
+    width: 100,
+    backgroundColor: "purple",
+    margin: 10,
+
+  },
+  draft3: {
+    height: 100,
+    width: 100,
+    backgroundColor: "blue",
+    margin: 10,
+
+  },
+  // deed:{
+  //   flex:1,
+  //   backgroundColor:"black"
+  // },
+  // dood:{
+  //   flex:1,
+  //   backgroundColor:"blue"
+  // }
+})
