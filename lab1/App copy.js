@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View , Image, ScrollView, Pressable, SafeAreaView, Button , TextInput} from 'react-native';
+import { StyleSheet, Text, View , Image, ScrollView, Pressable, SafeAreaView, Button , TextInput ,StatusBar,Platform} from 'react-native';
 export default function App() {
   return (
     <SafeAreaView style ={helber.container}>
@@ -12,13 +12,13 @@ export default function App() {
         style={{height:300, width: 300}}></Image>
         </Pressable>
         <Pressable onPress={()=> alert("narangoo")}
-        onLongPress={()=> alert("zaaa ner ni")}>
+        onLongPress={()=> alert("booooooo")}>
         <Text>helloloooo</Text>
         </Pressable>
         <TextInput
           style={helber.input}
       />
-        <Button title='darchih' onPress={()=>alert('darchihlaaa')} color="#010101"
+        <Button title='click on me' onPress={()=>alert('clicked')} color="#010101"
         />
         <StatusBar style="auto" />
       </View>
@@ -33,6 +33,7 @@ const helber = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0 ,
   },
   texthuwirgal: {
     fontWeight: 2100,

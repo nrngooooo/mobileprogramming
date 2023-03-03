@@ -1,52 +1,43 @@
-import { View, StyleSheet, SafeAreaView, ScrollView } from 'react-native'
-import React from 'react'
+import * as React from 'react';
+import {  Button, View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App() {
+function HomeScreen({ navigation }) {
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView horizontal={true}>
-        <View style={styles.draft1}></View>
-        <View style={styles.draft2}></View>
-        <View style={styles.draft3}></View>
-      </ScrollView>
-    </SafeAreaView>
-  )
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details')}
+      />
+    </View>
+  );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "brown",
-    alignItems: "center",
-    justifyContent: "center",
-    flexDirection: 'row',
-  },
-  draft1: {
-    height: 100,
-    width: 100,
-    backgroundColor: "pink",
-    margin: 10,
 
-  },
-  draft2: {
-    height: 100,
-    width: 100,
-    backgroundColor: "purple",
-    margin: 10,
+function DetailsScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+      <Button
+        title="Go to Details... again"
+        onPress={() => navigation.navigate('Details')}
+      />
+    </View>
+  );
+}
 
-  },
-  draft3: {
-    height: 100,
-    width: 100,
-    backgroundColor: "blue",
-    margin: 10,
+const Stack = createNativeStackNavigator();
 
-  },
-  // deed:{
-  //   flex:1,
-  //   backgroundColor:"black"
-  // },
-  // dood:{
-  //   flex:1,
-  //   backgroundColor:"blue"
-  // }
-})
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export default App;
