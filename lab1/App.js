@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     margin: 20,
     flexWrap: "wrap",
+    flexDirection: "row",
     justifyContent: "space-around",
   },
   unguv1: {
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
   unguv2: {
     width: 150,
     height: 100,
-    backgroundColor: "#FF5349",
+    backgroundColor: "#ee5557",
     marginTop: 20,
     borderRadius: 15,
   },
@@ -112,13 +113,14 @@ const styles = StyleSheet.create({
   unguv4: {
     width: 150,
     height: 100,
-    backgroundColor: "violent",
+    backgroundColor: "#9864cc",
     marginTop: 20,
     borderRadius: 15,
   },
   ungutxt: {
     color: "white",
-    fontsize: 20,
+    fontsize: 30,
+    fontWeight: "700",
   },
   unguicon:{
     fontSize: 40,
