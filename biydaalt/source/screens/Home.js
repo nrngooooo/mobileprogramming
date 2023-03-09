@@ -1,18 +1,21 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, Platform, StatusBar, TouchableOpacity,Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native'
 
 export default function HomeScreen({ navigation }) {
+  const navigator = useNavigation();
   return (
     <SafeAreaView style={style.container}>
       <ScrollView>
         <View >
           <Text onPress={() => alert("Just Narangoo's app")}
             style={style.statictxt}>Welcome to my personal app :D</Text>
+          <Image source={require("../images/Lee_Jong-suk_March_2018.png")} style={style.draft1}></Image>
+
         </View>
         <View style={style.box1}>
-          <TouchableOpacity onPress={() => navigation.navigate('Detail')}>
+          <TouchableOpacity onPress={() => navigator.navigate('Detail')}>
             <Image source={require("../images/Lee_Jong-suk_March_2018.png")} style={style.draft1}></Image>
-
           </TouchableOpacity>
         </View>
       </ScrollView>
