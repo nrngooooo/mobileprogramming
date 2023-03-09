@@ -1,17 +1,58 @@
-// In App.js in a new project
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+// Screens
 import HomeScreen from './source/screens/Home';
-import DetailScreen from './source/screens/Detail';
-const Stack = createNativeStackNavigator();
- export default function App() {
+import DetailsScreen from './source/screens/Detail';
+import SettingsScreen from './source/screens/Settings';
+
+//Screen names
+const homeName = "Home";
+const detailsName = "Detail";
+const settingsName = "Settings";
+
+const Tab = createBottomTabNavigator();
+
+function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Detail" component={DetailScreen} />
-      </Stack.Navigator>
+      <Tab.Navigator
+        initialRouteName={homeName}
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            let rn = route.name;
+
+            if (rn === homeName) {
+              iconName = focused ? 'home' : 'home-outline';
+
+            } else if (rn === detailsName) {
+              iconName = focused ? 'list' : 'list-outline';
+
+            } else if (rn === settingsName) {
+              iconName = focused ? 'settings' : 'settings-outline';
+            }
+
+            // You can return any component that you like here!
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'grey',
+          labelStyle: { paddingBottom: 10, fontSize: 10 },
+          style: { padding: 10, height: 70}
+        }}>
+
+        <Tab.Screen name={homeName} component={HomeScreen} />
+        <Tab.Screen name={detailsName} component={DetailsScreen} />
+        <Tab.Screen name={settingsName} component={SettingsScreen} />
+
+      </Tab.Navigator>
     </NavigationContainer>
   );
-  }
+}
+
+export default App;
