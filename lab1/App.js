@@ -1,10 +1,19 @@
-import { SafeAreaView, Text, View, StyleSheet, StatusBar, Platform, ScrollView } from 'react-native'
-import React from 'react'
-import Entypo from '@expo/vector-icons/Entypo';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import Octicons from '@expo/vector-icons/Octicons';
+import {
+  SafeAreaView,
+  Text,
+  View,
+  StyleSheet,
+  StatusBar,
+  Platform,
+  ScrollView,
+  Image,
+} from "react-native";
+import React from "react";
+import Entypo from "@expo/vector-icons/Entypo";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
+import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
+import Octicons from "@expo/vector-icons/Octicons";
 
 export default function App() {
   return (
@@ -12,58 +21,58 @@ export default function App() {
       <ScrollView style={styles.sccrollcontainer}>
         <View style={styles.greeting}>
           <Text style={styles.greetingsmsg}>Өдрийн мэнд</Text>
-          <MaterialCommunityIcons style={styles.greetingicon} 
-            name="ticket-percent"></MaterialCommunityIcons>
+          <MaterialCommunityIcons
+            style={styles.greetingicon}
+            name="ticket-percent"
+          ></MaterialCommunityIcons>
           <Octicons style={styles.greetingicon} name="bell-fill"></Octicons>
-          <MaterialCommunityIcons style={styles.greetingicon} name="emoticon"></MaterialCommunityIcons>
+          <MaterialCommunityIcons
+            style={styles.greetingicon}
+            name="emoticon"
+          ></MaterialCommunityIcons>
         </View>
         <View style={styles.unguv0}>
           <View style={styles.unguv1}>
             <Text style={styles.ungutxt}>Товч ном</Text>
-            <Entypo style={styles.unguicon} 
-            name="triangle-down"></Entypo>
+            <Entypo style={styles.unguicon} name="triangle-down"></Entypo>
           </View>
           <View style={styles.unguv2}>
             <Text style={styles.ungutxt}>Цахим ном</Text>
-            <FontAwesome style={styles.unguicon} 
-            name="square"></FontAwesome>
+            <FontAwesome style={styles.unguicon} name="square"></FontAwesome>
           </View>
           <View style={styles.unguv3}>
             <Text style={styles.ungutxt}>Аудио ном</Text>
-            <Entypo style={styles.unguicon} 
-            name="triangle-right"></Entypo>
+            <Entypo style={styles.unguicon} name="triangle-right"></Entypo>
           </View>
           <View style={styles.unguv4}>
             <Text style={styles.ungutxt}>Подкаст</Text>
-            <FontAwesome5 style={styles.unguicon} 
-            name="circle"></FontAwesome5>
+            <FontAwesome5 style={styles.unguicon} name="circle"></FontAwesome5>
           </View>
         </View>
-        <View style={styles.unguv0}>
-          <View style={styles.unguv1}>
-            <Text style={styles.ungutxt}>Товч ном</Text>
-            <Entypo style={styles.unguicon} 
-            name="triangle-down"></Entypo>
+        <View style={styles.ontsloh}>
+          <Text style={styles.ontslohstatictxt}>Энэ 7 хоногийн онцлох</Text>
+          <View>
+            <Image
+              source={require("./source/images/Lee_Jong-suk_March_2018.png")}
+              style={styles.ontslohzurg}
+            ></Image>
           </View>
-          <View style={styles.unguv2}>
-            <Text style={styles.ungutxt}>Цахим ном</Text>
-            <FontAwesome style={styles.unguicon} 
-            name="square"></FontAwesome>
-          </View>
-          <View style={styles.unguv3}>
-            <Text style={styles.ungutxt}>Аудио ном</Text>
-            <Entypo style={styles.unguicon} 
-            name="triangle-right"></Entypo>
-          </View>
-          <View style={styles.unguv4}>
-            <Text style={styles.ungutxt}>Подкаст</Text>
-            <FontAwesome5 style={styles.unguicon} 
-            name="circle"></FontAwesome5>
+        </View>
+        <View style={styles.ontsloh}>
+          <Text style={styles.jijigtxt}>ЗӨВХӨН МПЛАС-ААС</Text>
+          <Text style={styles.ontslohstatictxt}>
+            Нетфликс ба Шинэчлэлийн Соёл
+          </Text>
+          <View>
+            <Image
+              source={require("./source/images/Lee_Jong-suk_March_2018.png")}
+              style={styles.ontslohzurg}
+            ></Image>
           </View>
         </View>
       </ScrollView>
     </SafeAreaView>
-  )
+  );
 }
 const styles = StyleSheet.create({
   container: {
@@ -82,10 +91,10 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   sccrollcontainer: {
-    backgroundColor: "#CCC"
+    backgroundColor: "#CCC",
   },
   unguv0: {
-    height: "350",
+    height: 210,
     backgroundColor: "white",
     borderRadius: 20,
     margin: 20,
@@ -95,31 +104,31 @@ const styles = StyleSheet.create({
   },
   unguv1: {
     width: 150,
-    height: 100,
+    height: 80,
     backgroundColor: "#0dc9c9",
-    marginTop: 15,
-    borderRadius: 15,
+    marginTop: 20,
+    borderRadius: 20,
   },
   unguv2: {
     width: 150,
-    height: 100,
+    height: 80,
     backgroundColor: "#f05454",
-    marginTop: 15,
-    borderRadius: 15,
+    marginTop: 20,
+    borderRadius: 20,
   },
   unguv3: {
     width: 150,
-    height: 100,
+    height: 80,
     backgroundColor: "#ffaf27",
     marginTop: 10,
-    borderRadius: 15,
+    borderRadius: 20,
   },
   unguv4: {
     width: 150,
-    height: 100,
+    height: 80,
     backgroundColor: "#9462cf",
     marginTop: 10,
-    borderRadius: 15,
+    borderRadius: 20,
   },
   ungutxt: {
     color: "white",
@@ -127,14 +136,37 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     margin: 10,
   },
-  unguicon:{
+  unguicon: {
     fontSize: 40,
     color: "white",
     marginLeft: 10,
   },
-  greetingicon:{
+  greetingicon: {
     fontSize: 28,
     color: "#038cfc",
     marginLeft: 10,
-  }
-})
+  },
+  ontsloh: {
+    height: 450,
+    backgroundColor: "white",
+    borderRadius: 20,
+    margin: 20,
+    flexWrap: "wrap",
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  ontslohstatictxt: {
+    marginTop: 25,
+    fontSize: 33,
+    fontWeight: "600",
+  },
+  ontslohzurg: {
+    height: 344,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+  },
+  jijigtxt: {
+    fontSize: 15,
+    color: "grey",
+  },
+});
