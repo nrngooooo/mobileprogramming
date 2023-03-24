@@ -14,6 +14,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import Octicons from "@expo/vector-icons/Octicons";
+import TabsScreen from "./"
 
 export default function App() {
   return (
@@ -154,16 +155,15 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     flexDirection: "row",
     justifyContent: "space-around",
+    overflow: "hidden",
   },
   ontslohstatictxt: {
-    marginTop: 25,
+    
     fontSize: 33,
     fontWeight: "600",
   },
   ontslohzurg: {
-    height: 344,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    width: 400,
   },
   jijigtxt: {
     fontSize: 15,
