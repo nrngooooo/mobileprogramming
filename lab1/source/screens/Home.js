@@ -27,10 +27,7 @@ export default function Home() {
             name="ticket-percent"
           ></MaterialCommunityIcons>
           <Octicons style={styles.greetingicon} name="bell-fill"></Octicons>
-          <MaterialCommunityIcons
-            style={styles.greetingicon}
-            name="emoticon"
-          ></MaterialCommunityIcons>
+          <Image style={styles.human} source={require("../images/icon.png")}></Image>
         </View>
         <View style={styles.unguv0}>
           <View style={styles.unguv1}>
@@ -136,7 +133,7 @@ const styles = StyleSheet.create({
   ungutxt: {
     color: "white",
     fontsize: 30,
-    fontWeight: "700",
+    fontWeight: "bold",
     margin: 10,
   },
   unguicon: {
@@ -149,6 +146,10 @@ const styles = StyleSheet.create({
     color: "#038cfc",
     marginLeft: 10,
   },
+  human:{
+    width: 45,
+    height: 45,
+  },
   ontsloh: {
     height: 450,
     backgroundColor: "white",
@@ -159,13 +160,16 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   ontslohstatictxt: {
-    fontSize: 33,
+    marginLeft: 10,
+    fontSize: 32,
     fontWeight: "bold",
   },
   ontslohzurg: {
     width: 400,
   },
   jijigtxt: {
+    margin: 15,
+    marginLeft: 10,
     fontSize: 15,
     color: "grey",
     textTransform: "uppercase",
