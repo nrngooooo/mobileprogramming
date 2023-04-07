@@ -5,10 +5,13 @@ import {
 } from 'react-native'
 import React from 'react'
 
-export default function AimagDetail() {
+export default function AimagDetail({route,navigation}) {
+    const {aimagname, aimagcode}=route.params
     return (
         <SafeAreaView style={styles.container}>
-            <Text>AimagDetail</Text>
+            <Text>{aimagname}</Text>
+            <Text>{aimagcode}</Text>
+
         </SafeAreaView>
     )
 }

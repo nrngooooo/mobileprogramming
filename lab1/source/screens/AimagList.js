@@ -13,7 +13,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 
 
-export default function AimagList() {
+export default function AimagList({ navigation }) {
     const [aimagData, setData] = useState();
     useEffect(() => {
         const body = { action: "aimagsum" };
@@ -27,19 +27,24 @@ export default function AimagList() {
             });
     }, []);
 
-    const DATA = aimagData.data
+    const DATA = aimagData && aimagData.data
 
-    const Item = ({ title }) => (
-        <Pressable onPress={()=>{console.log({title})}}>
-        <View style={styles.item}>
-            <View style={styles.itemv0}>
-                <Ionicons name="home" color='green' size={20}></Ionicons>
-                <Text style={styles.title}>{title}</Text>
+    const Item = ({ title,acode }) => (
+        <Pressable
+            onPress={() => {
+                console.log({ title,acode });
+                navigation.navigate("AimagDetail",{aimagname: title,aimagcode:acode})
+            }}
+        >
+            <View style={styles.item}>
+                <View style={styles.itemv0}>
+                    <Ionicons name="home" color='green' size={20}></Ionicons>
+                    <Text style={styles.title}>{title}</Text>
+                </View>
+                <View style={styles.itemv1}>
+                    <FontAwesome5 name="arrow-right" color="orange"></FontAwesome5>
+                </View>
             </View>
-            <View style={styles.itemv1}>
-                <FontAwesome5 name="arrow-right" color="orange"></FontAwesome5>
-            </View>
-        </View>
         </Pressable>
     );
     return (
@@ -47,7 +52,7 @@ export default function AimagList() {
             <ScrollView>
                 <FlatList
                     data={DATA}
-                    renderItem={({ item }) => <Item title={item.aimagname} />}
+                    renderItem={({ item,acode }) => <Item title={item.aimagname} acode={item.aimagcode}/>}
                     keyExtractor={item => item.aimagcode}
                 />
                 <Text>{JSON.stringify(aimagData)}</Text>
