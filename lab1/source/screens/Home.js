@@ -16,7 +16,7 @@ import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import Octicons from "@expo/vector-icons/Octicons";
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 
-export default function Home({navigation}) {
+export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.sccrollcontainer}>
@@ -47,9 +47,6 @@ export default function Home({navigation}) {
             <FontAwesome5 style={styles.unguicon} name="circle"></FontAwesome5>
           </View>
         </View>
-        <Button
-        onPress={() => navigation.navigate("AimagList")}
-      />
         <Pressable>
           <View style={styles.ontsloh}>
             <Text style={styles.jijigtxt}>оскар-ын шагналт бүтээл</Text>

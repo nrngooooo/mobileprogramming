@@ -12,7 +12,7 @@ export default function App() {
     <NavigationContainer>
       <HomeStack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="Home"
+        initialRouteName="AimagList"
       >
         <HomeStack.Screen name="Home" component={Home} />
         <HomeStack.Screen name="Detail" component={Detail} />
