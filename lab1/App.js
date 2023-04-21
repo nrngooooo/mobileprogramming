@@ -5,6 +5,7 @@ import Home from "./source/screens/Home";
 import Detail from "./source/screens/Detail";
 import AimagDetail from "./source/screens/AimagDetail";
 import AimagList from "./source/screens/AimagList";
+import Tabs from "./source/screens/Tabs";
 
 const HomeStack = createNativeStackNavigator();
 export default function App() {
@@ -12,12 +13,13 @@ export default function App() {
     <NavigationContainer>
       <HomeStack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName="AimagList"
+        initialRouteName="Home"
       >
         <HomeStack.Screen name="Home" component={Home} />
         <HomeStack.Screen name="Detail" component={Detail} />
         <HomeStack.Screen name="AimagList" component={AimagList} />
         <HomeStack.Screen name="AimagDetail" component={AimagDetail} />
+        <HomeStack.Screen name="Tabs" component={Tabs} />
       </HomeStack.Navigator>
     </NavigationContainer>
   );
