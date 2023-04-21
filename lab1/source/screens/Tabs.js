@@ -21,7 +21,7 @@ export default function Tabs() {
 
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
-        { key: 'first', title: 'Дэлгэрэнгүй' },
+        { key: 'first', title: 'Дэлгэрэгүй' },
         { key: 'second', title: 'Тайлбар' },
         { key: 'third', title: 'Бүлэг' },
 

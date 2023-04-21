@@ -30,7 +30,7 @@ export default function HomeScreen({ navigation }) {
           ></Image>
         </View>
         <View style={styles.box1}>
-          <TouchableOpacity onPress={() => navigator.navigate("Detail")}>
+          <TouchableOpacity onPress={() => navigator.navigate("Захиалга")}>
             <Image
               source={require("../images/Lee_Jong-suk_March_2018.png")}
               style={styles.zurg1}

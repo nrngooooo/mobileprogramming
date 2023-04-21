@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, Platform,StatusBar } from 'react-native';
 
-export default function SettingsScreen({ navigation }) {
+export default function BusadScreen({ navigation }) {
   return (
     <SafeAreaView style={style.container}>
       <ScrollView>
         <View >
-          <Text onPress={() => navigation.navigate('Home')}>Settings Screen</Text>
+          <Text onPress={() => navigation.navigate('Календар')}>Busad Screen</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
