@@ -10,16 +10,13 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
-export default function HomeScreen({ navigation }) {
-  const navigator = useNavigation();
+export default function Calendar() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View>
           <Text
-            onPress={() => alert("Just Narangoos app")}
             style={styles.statictxt}
           >
             Welcome to my personal app :D
@@ -28,14 +25,6 @@ export default function HomeScreen({ navigation }) {
             source={require("../images/Lee_Jong-suk_March_2018.png")}
             style={styles.zurg1}
           ></Image>
-        </View>
-        <View style={styles.box1}>
-          <TouchableOpacity onPress={() => navigator.navigate("Захиалга")}>
-            <Image
-              source={require("../images/Lee_Jong-suk_March_2018.png")}
-              style={styles.zurg1}
-            ></Image>
-          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>

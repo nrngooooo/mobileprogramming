@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, Platform,StatusBar } from 'react-native';
 
-export default function ZurhaiScreen({ navigation }) {
+export default function ZurhaiScreen() {
   return (
     <SafeAreaView style={style.container}>
       <ScrollView>
         <View >
-          <Text onPress={() => navigation.navigate('Календар')}>Zurhai Screen</Text>
+          <Text>Zurhai Screen</Text>
         </View>
       </ScrollView>
     </SafeAreaView>
