@@ -9,6 +9,7 @@ import HomeScreen from './source/screens/Home';
 import ZurhaiScreen from './source/screens/Detail';
 import BusadScreen from './source/screens/Other';
 import ZahialgaScreen from './source/screens/Order';
+import Draft from './source/screens/Draft';
 
 function HomeStackNavigation(){
   const HomeStack = createNativeStackNavigator();
@@ -19,9 +20,10 @@ function HomeStackNavigation(){
       screenOptions={{
       headerShown:false,
       }}
-        initialRouteName="Calendar"
+        initialRouteName="Draft"
       >
         <HomeStack.Screen name="Calendar" component={HomeScreen} />
+        <HomeStack.Screen name="Draft" component={Draft} />
         <HomeStack.Screen name="Horos" component={ZurhaiScreen} />
         <HomeStack.Screen name="Order" component={ZahialgaScreen} />
         <HomeStack.Screen name="Other" component={BusadScreen} />

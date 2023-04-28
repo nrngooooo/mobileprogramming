@@ -7,24 +7,23 @@ import {
   ScrollView,
   Platform,
   StatusBar,
-  TouchableOpacity,
   Image,
 } from "react-native";
+import { Octicons, Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+
 
 export default function Calendar() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <View>
-          <Text
-            style={styles.statictxt}
-          >
-            Welcome to my personal app :D
-          </Text>
-          <Image
-            source={require("../images/Lee_Jong-suk_March_2018.png")}
-            style={styles.zurg1}
-          ></Image>
+        <View style={styles.head0}>
+        <View style={styles.i0}>
+          <Ionicons style={styles.headicon} name="person-circle-outline"></Ionicons>
+          </View>
+          <View style={styles.i1}>
+          <Octicons style={styles.headicon} name="calendar"></Octicons>
+          <MaterialCommunityIcons style={styles.headicon} name="bell-outline"></MaterialCommunityIcons>
+          </View>     
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -33,25 +32,23 @@ export default function Calendar() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
     backgroundColor: "pink",
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
-  statictxt: {
-    fontSize: 24,
-    fontWeight: "bold",
-    fontStyle: "italic",
+  head0: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-end",
   },
-  box1: {
-    height: 600,
-    width: 400,
-    borderRadius: 20,
-    margin: 20,
-    color: "white",
+  headicon: {
+    fontSize: 28,
   },
-  zurg1: {
-    width: 300,
-    height: 500,
+  i0: {
+    flex: 9,
   },
+  i1:{
+    flexDirection: "row",
+    justifyContent: "space-around",
+    flex: 3,
+  }
 });
