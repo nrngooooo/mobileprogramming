@@ -20,7 +20,7 @@ function HomeStackNavigation(){
       screenOptions={{
       headerShown:false,
       }}
-        initialRouteName="Draft"
+        initialRouteName="Calendar"
       >
         <HomeStack.Screen name="Calendar" component={HomeScreen} />
         <HomeStack.Screen name="Draft" component={Draft} />
@@ -53,7 +53,7 @@ function BottomTabNavigation() {
               iconName = focused ? 'bookmark-outline' : 'bookmark-outline';
 
             } else if (rn === "Бусад") {
-              iconName = focused ? 'view-headline' : 'view-headline';
+              iconName = focused ? 'view-headline' : 'menu';
             }
 
             // You can return any component that you like here!
@@ -61,16 +61,19 @@ function BottomTabNavigation() {
           },
           headerShown:false,
           tabBarStyle: {
-            height: 60,
+            height: 70,
             paddingHorizontal: 5,
             paddingTop: 0,
+            paddingBottom: 10,
             position: "absolute",
             borderTopWidth: 0,
+            backgroundColor: "#F8F3F3",
           },
-          tabBarActiveTintColor: "#fb9084",
+          tabBarActiveTintColor: "#FC7D8F",
           tabBarInactiveTintColor: "grey",
-          tabBarlabelStyle: {
-            fontWeight: "bold",
+          tabBarLabelStyle: {
+            fontSize: 12,
+            fontWeight: "500",
           },
         })}>
 
