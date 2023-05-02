@@ -14,7 +14,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Octicons, Ionicons, MaterialCommunityIcons, Fontisto } from "@expo/vector-icons";
 
 
-export default function Calendar() {
+export default function Calendar({ navigation }) {
   const [selectedDate, setSelectedDate] = useState('');
 
   const handleDayPress = (day) => {
@@ -37,18 +37,36 @@ export default function Calendar() {
       </TouchableOpacity>
     );
   };
-
+  const zodiacItem = ({ item }) => {
+    const date = item.dateString;
+    const isToday = date === selectedDate;
+    const isCurrentDay = date === new Date().toISOString().split('T')[0];
+    return (
+      <View style={styles.zodiac}>
+        <Text style={[styles.zodhead, isToday && { color: 'black' }, isCurrentDay && { color: 'black' }]}>Зурхай: {item.horos}</Text>
+        <Text style={styles.zoddetail}>Өнөөдөр</Text>
+        <Text style={styles.line}>____________________________________________</Text>
+        <Pressable onPress={() => {
+          navigation.navigate("Horos")
+        }}>
+          <Text style={styles.ptext}>Дэлгэрэнгүй</Text>
+        </Pressable>
+      </View>
+    );
+  };
   const weekDays = Array.from({ length: 7 }, (_, i) => {
     const date = new Date();
-    const dayOfWeek = date.getDay() === 0 ? 6 : date.getDay() - 0; // Sunday is 0, Monday is 1, etc.
+    const dayOfWeek = date.getDay() === 0 ? 6 : date.getDay() - 2; // Sunday is 0, Monday is 1, etc.
     const diff = dayOfWeek - i < 0 ? dayOfWeek - i + 7 : dayOfWeek - i;
     date.setDate(date.getDate() - diff);
     return {
       day: date.toLocaleDateString('mn-MN', { weekday: 'short' }).substring(12, 14),
       udur: date.toLocaleDateString('mn-MN', { weekday: 'short' }).substring(8, 10),
+      horos: date.toLocaleDateString('mn-MN', { weekday: 'short' }).substring(0, 10),
       dateString: date.toISOString().split('T')[0],
     };
   });
+
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient colors={['white', '#f8d2d7']}
@@ -89,7 +107,13 @@ export default function Calendar() {
               <Fontisto style={styles.addicon} name="dislike"></Fontisto>
             </View>
           </View>
-          <View style={styles.zodiac}></View>
+          <View>
+            <FlatList
+              horizontal
+              data={weekDays}
+              renderItem={zodiacItem}
+            />
+          </View>
         </ScrollView>
       </LinearGradient>
     </SafeAreaView>
@@ -102,6 +126,7 @@ const styles = StyleSheet.create({
   },
   background: {
     flex: 1,
+    marginBottom: 100,
   },
   head0: {
     flexDirection: "row",
@@ -217,4 +242,21 @@ const styles = StyleSheet.create({
     margin: 30,
     padding: 20,
   },
+  zodhead: {
+    fontSize: 17,
+  },
+  zoddetail: {
+    fontSize: 15,
+    paddingTop: 5,
+    color: "gray",
+  },
+  line: {
+    color: "gray",
+  },
+  ptext: {
+    color: "#FC7D8F",
+    fontSize: 14,
+    fontWeight: "bold",
+    alignItems: "flex-end"
+  }
 });
