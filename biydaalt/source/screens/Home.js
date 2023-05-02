@@ -42,7 +42,7 @@ export default function Calendar({ navigation }) {
     const isToday = date === selectedDate;
     const isCurrentDay = date === new Date().toISOString().split('T')[0];
     return (
-      <View style={styles.zodiac}>
+      <View style={[styles.zodiac, isCurrentDay, isToday]}>
         <Text style={[styles.zodhead, isToday && { color: 'black' }, isCurrentDay && { color: 'black' }]}>Зурхай: {item.horos}</Text>
         <Text style={styles.zoddetail}>Өнөөдөр</Text>
         <Text style={styles.line}>____________________________________________</Text>
@@ -56,7 +56,7 @@ export default function Calendar({ navigation }) {
   };
   const weekDays = Array.from({ length: 7 }, (_, i) => {
     const date = new Date();
-    const dayOfWeek = date.getDay() === 0 ? 6 : date.getDay() - 2; // Sunday is 0, Monday is 1, etc.
+    const dayOfWeek = date.getDay() === 0 ? 6 : date.getDay() - 7; // Sunday is 0, Monday is 1, etc.
     const diff = dayOfWeek - i < 0 ? dayOfWeek - i + 7 : dayOfWeek - i;
     date.setDate(date.getDate() - diff);
     return {
