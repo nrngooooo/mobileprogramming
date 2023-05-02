@@ -10,6 +10,7 @@ import {
   Image,
   FlatList, TouchableOpacity, Pressable,
 } from "react-native";
+import Modal from "react-native-modal";
 import { LinearGradient } from 'expo-linear-gradient';
 import { Octicons, Ionicons, MaterialCommunityIcons, Fontisto } from "@expo/vector-icons";
 
@@ -37,23 +38,21 @@ export default function Calendar({ navigation }) {
       </Pressable>
     );
   };
-  const zodiacItem = ({ item }) => {
-    const date = item.dateString;
-    const isToday = date === selectedDate;
-    const isCurrentDay = date === new Date().toISOString().split('T')[0];
-    return (
-      <View style={[styles.zodiac, isCurrentDay, isToday]}>
-        <Text style={[styles.zodhead, isToday && { color: 'black' }, isCurrentDay && { color: 'black' }]}>Зурхай: {item.horos}</Text>
-        <Text style={styles.zoddetail}>Өнөөдөр</Text>
-        <Text style={styles.line}>____________________________________________</Text>
-        <Pressable onPress={() => {
-          navigation.navigate("Horos")
-        }}>
-          <Text style={styles.ptext}>Дэлгэрэнгүй</Text>
-        </Pressable>
-      </View>
-    );
-  };
+  // Date обьектыг үүсгэнэ
+  let today = new Date();
+
+  // Өнөөдөр сарын өдрийг авах
+  const dayFormatted = today.getDate();
+
+  // Format the dayFormatted of the month with leading zeros
+  const day = dayFormatted.toString().padStart(2, '0');
+
+  // Өнөөдөр сарын нэрээ авах
+  let monthNames = ["1", "2", "3", "4", "05", "6", "7", "8", "9", "10", "11", "12"];
+  let month = monthNames[today.getMonth()];
+
+  // Өнөөдөр сарын жилээ авах
+  let year = today.getFullYear();
   const weekDays = Array.from({ length: 7 }, (_, i) => {
     const date = new Date();
     const dayOfWeek = date.getDay() === 0 ? 6 : date.getDay() - 7; // Sunday is 0, Monday is 1, etc.
@@ -107,12 +106,15 @@ export default function Calendar({ navigation }) {
               <Fontisto style={styles.addicon} name="dislike"></Fontisto>
             </View>
           </View>
-          <View>
-            <FlatList
-              horizontal
-              data={weekDays}
-              renderItem={zodiacItem}
-            />
+          <View style={styles.zodiac}>
+            <Text style={styles.zodhead}>Зурхай: {year}-{month}-{day}  </Text>
+            <Text style={styles.zoddetail}>Өнөөдөр</Text>
+            <Text style={styles.line}>____________________________________________</Text>
+            <Pressable onPress={() => {
+              navigation.navigate("Horos")
+            }}>
+              <Text style={styles.ptext}>Дэлгэрэнгүй</Text>
+            </Pressable>
           </View>
         </ScrollView>
       </LinearGradient>
@@ -191,6 +193,7 @@ const styles = StyleSheet.create({
   noteText: {
     fontSize: 16,
     fontWeight: "500",
+    color: "#2C3333",
   },
   noteText1: {
     fontSize: 13,
@@ -216,7 +219,7 @@ const styles = StyleSheet.create({
   },
   adtext: {
     fontSize: 15,
-    color: "#164262"
+    color: "#2C3333"
   },
   adiconss: {
     flex: 2,
@@ -244,6 +247,7 @@ const styles = StyleSheet.create({
   },
   zodhead: {
     fontSize: 17,
+    color: "#2C3333",
   },
   zoddetail: {
     fontSize: 15,
@@ -251,12 +255,14 @@ const styles = StyleSheet.create({
     color: "gray",
   },
   line: {
-    color: "gray",
+    color: "gainsboro",
   },
   ptext: {
     color: "#FC7D8F",
     fontSize: 14,
     fontWeight: "bold",
-    alignItems: "flex-end"
+    marginLeft: 215,
+    margin: 10,
+
   }
 });
