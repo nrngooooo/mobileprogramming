@@ -26,7 +26,7 @@ export default function Calendar({ navigation }) {
     const isToday = date === selectedDate;
     const isCurrentDay = date === new Date().toISOString().split('T')[0];
     return (
-      <TouchableOpacity
+      <Pressable
         onPress={() => handleDayPress(item)}
         style={[styles.dateContainer, isToday && { backgroundColor: "#58ACAC" }]}
       >
@@ -34,7 +34,7 @@ export default function Calendar({ navigation }) {
 
         <Text onPress={() => handleDayPress(item)}
           style={[styles.dateNum, isToday && {}, isCurrentDay && { color: 'red' }]}>{item.udur}</Text>
-      </TouchableOpacity>
+      </Pressable>
     );
   };
   const zodiacItem = ({ item }) => {
