@@ -2,7 +2,7 @@ import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // Screens
 import HomeScreen from './source/screens/Home';
@@ -44,20 +44,20 @@ function BottomTabNavigation() {
             let rn = route.name;
 
             if (rn ==="Календар") {
-              iconName = focused ? 'calendar-today' : 'calendar-today';
+              iconName = focused ? 'calendar-blank' : 'calendar-blank';
 
             } else if (rn === "Зурхай") {
-              iconName = focused ? 'book' : 'book';
+              iconName = focused ? 'book-outline' : 'book-outline';
 
             } else if (rn === "Захиалга") {
               iconName = focused ? 'bookmark-outline' : 'bookmark-outline';
 
             } else if (rn === "Бусад") {
-              iconName = focused ? 'view-headline' : 'menu';
+              iconName = focused ? 'menu' : 'menu';
             }
 
             // You can return any component that you like here!
-            return <MaterialIcons name={iconName} size={size} color={color} />;
+            return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
           },
           headerShown:false,
           tabBarStyle: {

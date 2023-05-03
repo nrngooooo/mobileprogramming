@@ -73,7 +73,7 @@ export default function Calendar({ navigation }) {
         <View>
           <View style={styles.head0}>
             <View style={styles.i0}>
-              <Ionicons style={styles.proicon} name="person-circle-outline"></Ionicons>
+              <MaterialCommunityIcons style={styles.proicon} name="account-circle-outline"></MaterialCommunityIcons>
             </View>
             <View style={styles.i1}>
               <Octicons style={styles.calicon} name="calendar"></Octicons>
@@ -128,7 +128,6 @@ const styles = StyleSheet.create({
   },
   background: {
     flex: 1,
-    marginBottom: 100,
   },
   head0: {
     flexDirection: "row",
@@ -244,6 +243,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     margin: 30,
     padding: 20,
+    marginBottom: 100,
   },
   zodhead: {
     fontSize: 17,
@@ -263,6 +263,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginLeft: 215,
     margin: 10,
+  },
 
-  }
 });

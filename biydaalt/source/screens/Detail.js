@@ -1,33 +1,69 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, Platform, StatusBar, Image,Pressable } from 'react-native';
-import { Octicons, Ionicons, MaterialCommunityIcons, Fontisto } from "@expo/vector-icons";
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, Platform, StatusBar, Image, Pressable } from 'react-native';
+import { Octicons, Ionicons, MaterialCommunityIcons, FontAwesome, AntDesign } from "@expo/vector-icons";
 
 export default function ZurhaiScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <View style={styles.i0}>
-          <Ionicons style={styles.proicon} name="person-circle-outline"></Ionicons>
+          <MaterialCommunityIcons style={styles.proicon} name="account-circle-outline"></MaterialCommunityIcons>
         </View>
       </View>
       <ScrollView>
-      <View style={styles.h}>
-        <View style={styles.zodiaccircle}>
-          <Image style={styles.zimg} source={require("../images/capricorn-symbol-icon.png")}></Image>
-        </View>
-        <Text style={styles.ztext}>Матар</Text>
-        <Text style={styles.zdate}>12/22 - 01/19</Text>
-        <View style={styles.zodiac}>
+        <View style={styles.h}>
+          <View style={styles.zodiaccircle}>
+            <Image style={styles.zimg} source={require("../images/capricorn-symbol-icon.png")}></Image>
+          </View>
+          <Text style={styles.ztext}>Матар</Text>
+          <Text style={styles.zdate}>12/22 - 01/19</Text>
+          <View style={styles.zodiac}>
             <Text style={styles.zodhead}>Өнөөдрийн зурхай</Text>
             <Text style={styles.zoddetail}>Өнөөдөр та өөрийн хийхийг хүсэж буй зүйлд ...</Text>
             <Text style={styles.line}>____________________________________________</Text>
             <Pressable onPress={() => {
-              navigation.navigate("Horos")
             }}>
               <Text style={styles.ptext}>Дэлгэрэнгүй</Text>
             </Pressable>
           </View>
-          <View style={styles.fview}></View>
+          <View style={styles.fview}>
+            <View style={styles.vbuttons}>
+              <Pressable onPress={() => console.log("drgdlaa")}>
+                <View style={styles.vbutton}>
+                  <Text style={styles.btext}>Ерөнхий</Text>
+                </View>
+              </Pressable>
+              <Pressable onPress={() => console.log("drgdlaa")}>
+                <View style={styles.vbutton}>
+                  <Text style={styles.btext}>Маргааш</Text>
+                </View>
+              </Pressable>
+              <Pressable onPress={() => console.log("drgdlaa")}>
+                <View style={styles.vthird}>
+                  <Text style={styles.btext}>Сар</Text>
+                </View>
+              </Pressable>
+            </View>
+            <View style={styles.horosview}>
+              <View style={styles.hordetail}>
+                <AntDesign style={styles.horicon} name='hearto'></AntDesign>
+                <Text style={styles.hortitle}>Ордны зурхай</Text>
+                <Text style={styles.hortext}>Таны ерөнхий шинж байдал</Text>
+              </View>
+              <View style={styles.hordetail}>
+                <AntDesign style={styles.horicon} name='hearto'></AntDesign>
+                <Text style={styles.hortitle}>Ордны зурхай</Text>
+              </View>
+              <View style={styles.hordetail}>
+                <AntDesign style={styles.horicon} name='hearto'></AntDesign>
+                <Text style={styles.hortitle}>Ордны зурхай</Text>
+              </View>
+              <View style={styles.hordetail}>
+                <AntDesign style={styles.horicon} name='hearto'></AntDesign>
+                <Text style={styles.hortitle}>Ордны зурхай</Text>
+              </View>
+            </View>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -114,6 +150,58 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     width: "100%",
     height: 500,
+  },
+  vbuttons: {
+    flexDirection: 'row',
+    justifyContent: "space-around",
+    margin: 30
+  },
+  vbutton: {
+    height: 35,
+    width: 125,
+    borderRadius: 5,
+    borderColor: "gainsboro",
+    borderWidth: 1,
+    backgroundColor: "#f3f7fb",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  vthird: {
+    height: 35,
+    width: 80,
+    borderRadius: 5,
+    borderColor: "gainsboro",
+    borderWidth: 1,
+    backgroundColor: "#f3f7fb",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  btext: {
+    color: "#2C3333",
+    fontSize: 15,
+    fontWeight: "500",
+  },
+  horosview: {
+    justifyContent: "center",
+    alignItems: "center",
+    width: 500
+  },
+  horicon: {
+    fontSize: 30,
+    color: "#FC7D8F"
+  },
+  hordetail: {
+    flexDirection: 'row',
+    width: 400,
+    height: 100,
+    justifyContent: "center",
+  },
+  hortitle: {
+    fontSize: 20,
+  },
+  hortext:{
+    fontSize: 15,
+    paddingTop: 5,
+    color: "gray",
   }
-
 })
