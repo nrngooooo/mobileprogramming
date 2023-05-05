@@ -16,6 +16,8 @@ import { Octicons, Ionicons, MaterialCommunityIcons, Fontisto } from "@expo/vect
 
 
 export default function Calendar({ navigation }) {
+
+  const [modalVisible, setModalVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState('');
 
   const handleDayPress = (day) => {
@@ -72,8 +74,7 @@ export default function Calendar({ navigation }) {
         style={styles.background}>
         <View>
           <View style={styles.head0}>
-            <View style={styles.i0}>
-              <MaterialCommunityIcons style={styles.proicon} name="account-circle-outline"></MaterialCommunityIcons>
+            <View style={styles.i0}><Image></Image>
             </View>
             <View style={styles.i1}>
               <Octicons style={styles.calicon} name="calendar"></Octicons>

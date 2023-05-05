@@ -1,8 +1,14 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, Platform, StatusBar, Image, Pressable } from 'react-native';
 import { Octicons, Ionicons, MaterialCommunityIcons, FontAwesome, AntDesign } from "@expo/vector-icons";
 
 export default function ZurhaiScreen() {
+  const [titleCard, settitleCard] = useState("Өнөөдрийн зурхай");
+  const [textCard, settextCard] = useState("Өнөөдөр та өөрийн хийхийг хүсэж буй зүйлд ...");
+  const changetext = (titleC, textC) => {
+    settitleCard(titleC);
+    settextCard(textC);
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -18,8 +24,8 @@ export default function ZurhaiScreen() {
           <Text style={styles.ztext}>Матар</Text>
           <Text style={styles.zdate}>12/22 - 01/19</Text>
           <View style={styles.zodiac}>
-            <Text style={styles.zodhead}>Өнөөдрийн зурхай</Text>
-            <Text style={styles.zoddetail}>Өнөөдөр та өөрийн хийхийг хүсэж буй зүйлд ...</Text>
+            <Text style={styles.zodhead}>{titleCard}</Text>
+            <Text style={styles.zoddetail}>{textCard}</Text>
             <Text style={styles.line}>____________________________________________</Text>
             <Pressable onPress={() => {
             }}>
@@ -28,17 +34,17 @@ export default function ZurhaiScreen() {
           </View>
           <View style={styles.fview}>
             <View style={styles.vbuttons}>
-              <Pressable onPress={() => console.log("drgdlaa")}>
+              <Pressable onPress={() => changetext("Өнөөдрийн зурхай", "Өнөөдөр та өөрийн хийхийг хүсэж буй зүйлд ...")}>
                 <View style={styles.vbutton}>
                   <Text style={styles.btext}>Ерөнхий</Text>
                 </View>
               </Pressable>
-              <Pressable onPress={() => console.log("drgdlaa")}>
+              <Pressable onPress={() => changetext("Маргаашийн зурхай", "B")}>
                 <View style={styles.vbutton}>
                   <Text style={styles.btext}>Маргааш</Text>
                 </View>
               </Pressable>
-              <Pressable onPress={() => console.log("drgdlaa")}>
+              <Pressable onPress={() => changetext("5-р сарын зурхай", "Cобшцхбшхрцшбцхбүшгцүбнгүцгбүгүшыгбшчгнгхбабнанабннангнннгнгннгнг")}>
                 <View style={styles.vthird}>
                   <Text style={styles.btext}>Сар</Text>
                 </View>
@@ -46,7 +52,8 @@ export default function ZurhaiScreen() {
             </View>
             <View style={styles.horosview}>
               <View style={styles.hordetail}>
-                <AntDesign style={styles.horicon} name='hearto'></AntDesign>
+                <Image source={require("../images/astrology.png")}
+                  style={styles.ipic}></Image>
                 <Text style={styles.hortitle}>Ордны зурхай</Text>
                 <Text style={styles.hortext}>Таны ерөнхий шинж байдал</Text>
               </View>
@@ -199,9 +206,13 @@ const styles = StyleSheet.create({
   hortitle: {
     fontSize: 20,
   },
-  hortext:{
+  hortext: {
     fontSize: 15,
     paddingTop: 5,
     color: "gray",
+  },
+  ipic: {
+    height: 45,
+    width: 45,
   }
 })
