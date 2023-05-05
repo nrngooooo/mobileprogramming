@@ -4,10 +4,12 @@ import { Octicons, Ionicons, MaterialCommunityIcons, FontAwesome, AntDesign } fr
 
 export default function ZurhaiScreen() {
   const [titleCard, settitleCard] = useState("Өнөөдрийн зурхай");
+  const [selectedItem, setSelectedItem] = useState(null);
   const [textCard, settextCard] = useState("Өнөөдөр та өөрийн хийхийг хүсэж буй зүйлд ...");
-  const changetext = (titleC, textC) => {
+  const changetext = (titleC, textC, item) => {
     settitleCard(titleC);
     settextCard(textC);
+    setSelectedItem(item);
   }
   return (
     <SafeAreaView style={styles.container}>
@@ -34,20 +36,15 @@ export default function ZurhaiScreen() {
           </View>
           <View style={styles.fview}>
             <View style={styles.vbuttons}>
-              <Pressable onPress={() => changetext("Өнөөдрийн зурхай", "Өнөөдөр та өөрийн хийхийг хүсэж буй зүйлд ...")}>
-                <View style={styles.vbutton}>
-                  <Text style={styles.btext}>Ерөнхий</Text>
-                </View>
+              <Pressable style={[styles.vbutton, selectedItem === 'Ерөнхий' && styles.selected]} onPress={() => changetext("Өнөөдрийн зурхай", "Өнөөдөр та өөрийн хийхийг хүсэж буй зүйлд ...")}>
+                <Text style={[styles.btext, selectedItem === 'Ерөнхий' && styles.selectedText]} > Ерөнхий</Text>
               </Pressable>
-              <Pressable onPress={() => changetext("Маргаашийн зурхай", "B")}>
-                <View style={styles.vbutton}>
-                  <Text style={styles.btext}>Маргааш</Text>
-                </View>
+              <Pressable style={[styles.vbutton, selectedItem === 'Маргааш' && styles.selected]} onPress={() => changetext("Маргаашийн зурхай", "B")}>
+                <Text style={[styles.btext, selectedItem === 'Маргааш' && styles.selectedText]}>Маргааш</Text>
               </Pressable>
-              <Pressable onPress={() => changetext("5-р сарын зурхай", "Cобшцхбшхрцшбцхбүшгцүбнгүцгбүгүшыгбшчгнгхбабнанабннангнннгнгннгнг")}>
-                <View style={styles.vthird}>
-                  <Text style={styles.btext}>Сар</Text>
-                </View>
+              <Pressable style={[styles.vthird, selectedItem === 'Сар' && styles.selected]} onPress={() => changetext("5-р сарын зурхай", "Cобшцхбшхрцшбцхбүшгцүбнгүцгбүгүшыгбшчгнгхбабнанабннангнннгнгннгнг")}>
+                <Text style={[styles.btext, selectedItem === 'Сар' && styles.selectedText]}>Сар</Text>
+
               </Pressable>
             </View>
             <View style={styles.horosview}>
@@ -58,22 +55,28 @@ export default function ZurhaiScreen() {
                 <Text style={styles.hortext}>Таны ерөнхий шинж байдал</Text>
               </View>
               <View style={styles.hordetail}>
-                <AntDesign style={styles.horicon} name='hearto'></AntDesign>
-                <Text style={styles.hortitle}>Ордны зурхай</Text>
+                <Image source={require("../images/heart.png")}
+                  style={styles.ipic}></Image>
+                <Text style={styles.hortitle}>Хайрын зурхай</Text>
+                <Text style={styles.hortext}>Таны ерөнхий шинж байдал</Text>
               </View>
               <View style={styles.hordetail}>
-                <AntDesign style={styles.horicon} name='hearto'></AntDesign>
-                <Text style={styles.hortitle}>Ордны зурхай</Text>
+                <Image source={require("../images/happy.png")}
+                  style={styles.ipic}></Image>
+                <Text style={styles.hortitle}>Нөхөрлөл</Text>
+                <Text style={styles.hortext}>Таны ерөнхий шинж байдал</Text>
               </View>
               <View style={styles.hordetail}>
-                <AntDesign style={styles.horicon} name='hearto'></AntDesign>
-                <Text style={styles.hortitle}>Ордны зурхай</Text>
+                <Image source={require("../images/dollar.png")}
+                  style={styles.ipic}></Image>
+                <Text style={styles.hortitle}>Ажил карьер, мөнгө</Text>
+                <Text style={styles.hortext}>Таны ерөнхий шинж байдал</Text>
               </View>
             </View>
           </View>
         </View>
-      </ScrollView>
-    </SafeAreaView>
+      </ScrollView >
+    </SafeAreaView >
   );
 }
 const styles = StyleSheet.create({
@@ -156,7 +159,7 @@ const styles = StyleSheet.create({
   fview: {
     backgroundColor: "white",
     width: "100%",
-    height: 500,
+    height: 570,
   },
   vbuttons: {
     flexDirection: 'row',
@@ -191,7 +194,9 @@ const styles = StyleSheet.create({
   horosview: {
     justifyContent: "center",
     alignItems: "center",
-    width: 500
+    width: 500,
+    justifyContent: "space-between",
+
   },
   horicon: {
     fontSize: 30,
@@ -199,20 +204,25 @@ const styles = StyleSheet.create({
   },
   hordetail: {
     flexDirection: 'row',
+    flexWrap: "wrap",
     width: 400,
     height: 100,
-    justifyContent: "center",
   },
   hortitle: {
     fontSize: 20,
   },
   hortext: {
     fontSize: 15,
-    paddingTop: 5,
     color: "gray",
   },
   ipic: {
     height: 45,
     width: 45,
-  }
+  },
+  selected: {
+    backgroundColor: '#FC7D8F',
+  },
+  selectedText: {
+    color: 'white',
+  },
 })
