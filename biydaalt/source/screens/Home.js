@@ -72,7 +72,8 @@ export default function Calendar({ navigation }) {
         style={styles.background}>
         <View>
           <View style={styles.head0}>
-            <View style={styles.i0}><Image></Image>
+            <View style={styles.i0}>
+              <MaterialCommunityIcons style={styles.proicon} name="account-circle-outline"></MaterialCommunityIcons>
             </View>
             <View style={styles.i1}>
               <Octicons style={styles.calicon} name="calendar"></Octicons>
@@ -147,7 +148,7 @@ const styles = StyleSheet.create({
   bellicon: {
     fontSize: 25,
     color: "#3f3f40",
-    paddingRight: 40,
+    paddingRight: 30,
   },
   i0: {
     flex: 9,
@@ -185,7 +186,7 @@ const styles = StyleSheet.create({
     width: 360,
     borderRadius: 20,
     backgroundColor: "white",
-    margin: 30,
+    margin: 25,
     padding: 20,
   },
   noteText: {
@@ -203,7 +204,7 @@ const styles = StyleSheet.create({
     width: 360,
     borderRadius: 20,
     backgroundColor: "white",
-    marginLeft: 30,
+    marginLeft: 25,
     overflow: "hidden",
     flexWrap: "wrap",
   },

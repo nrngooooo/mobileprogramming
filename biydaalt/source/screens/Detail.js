@@ -49,28 +49,51 @@ export default function ZurhaiScreen() {
             </View>
             <View style={styles.horosview}>
               <View style={styles.hordetail}>
-                <Image source={require("../images/astrology.png")}
-                  style={styles.ipic}></Image>
-                <Text style={styles.hortitle}>Ордны зурхай</Text>
-                <Text style={styles.hortext}>Таны ерөнхий шинж байдал</Text>
+                <View style={styles.iview}>
+                  <Image source={require("../images/astrology.png")}
+                    style={styles.ipic}></Image>
+                </View>
+                <View style={styles.horview}>
+                  <Text style={styles.hortitle}>Ордны зурхай</Text>
+                  <Text style={styles.hortext}>{`Таны ерөнхий шинж 
+байдал`}</Text>
+                </View>
+                <Text style={styles.hline}>_______________________________________________</Text>
               </View>
               <View style={styles.hordetail}>
-                <Image source={require("../images/heart.png")}
-                  style={styles.ipic}></Image>
-                <Text style={styles.hortitle}>Хайрын зурхай</Text>
-                <Text style={styles.hortext}>Таны ерөнхий шинж байдал</Text>
+                <View style={styles.iview}>
+                  <Image source={require("../images/heart.png")}
+                    style={styles.ipic}></Image>
+                </View>
+                <View style={styles.horview}>
+                  <Text style={styles.hortitle}>Хайрын зурхай</Text>
+                  <Text style={styles.hortext}>{`Таны ерөнхий шинж 
+байдал`}</Text>
+                </View>
+                <Text style={styles.hline}>_______________________________________________</Text>
               </View>
               <View style={styles.hordetail}>
-                <Image source={require("../images/happy.png")}
-                  style={styles.ipic}></Image>
-                <Text style={styles.hortitle}>Нөхөрлөл</Text>
-                <Text style={styles.hortext}>Таны ерөнхий шинж байдал</Text>
+                <View style={styles.iview}>
+                  <Image source={require("../images/happy.png")}
+                    style={styles.ipic}></Image>
+                </View>
+                <View style={styles.horview}>
+                  <Text style={styles.hortitle}>Нөхөрлөл</Text>
+                  <Text style={styles.hortext}>{`Таны ерөнхий шинж 
+байдал`}</Text>
+                </View>
+                <Text style={styles.hline}>_______________________________________________</Text>
               </View>
               <View style={styles.hordetail}>
-                <Image source={require("../images/dollar.png")}
-                  style={styles.ipic}></Image>
-                <Text style={styles.hortitle}>Ажил карьер, мөнгө</Text>
-                <Text style={styles.hortext}>Таны ерөнхий шинж байдал</Text>
+                <View>
+                  <Image source={require("../images/dollar.png")}
+                    style={styles.dollarpic}></Image>
+                </View>
+                <View style={styles.horview}>
+                  <Text style={styles.hortitle}>Ажил карьер, мөнгө</Text>
+                  <Text style={styles.hortext}>{`Таны ерөнхий шинж 
+байдал`}</Text>
+                </View>
               </View>
             </View>
           </View>
@@ -159,12 +182,15 @@ const styles = StyleSheet.create({
   fview: {
     backgroundColor: "white",
     width: "100%",
-    height: 570,
+    height: 500,
   },
   vbuttons: {
     flexDirection: 'row',
     justifyContent: "space-around",
-    margin: 30
+    marginTop: 30,
+    marginLeft: 30,
+    marginRight: 30,
+    marginBottom: 15,
   },
   vbutton: {
     height: 35,
@@ -196,7 +222,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 500,
     justifyContent: "space-between",
-
+  },
+  hline: {
+    color: "gainsboro",
   },
   horicon: {
     fontSize: 30,
@@ -206,18 +234,29 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: "wrap",
     width: 400,
-    height: 100,
+    height: 90,
+  },
+  horview: {
+    marginLeft: 25,
   },
   hortitle: {
-    fontSize: 20,
+    fontSize: 16,
   },
   hortext: {
-    fontSize: 15,
+    fontSize: 14,
     color: "gray",
   },
+  iview: {
+    justifyContent: "center",
+  },
   ipic: {
-    height: 45,
-    width: 45,
+    height: 40,
+    width: 40,
+  },
+  dollarpic: {
+    height: 40,
+    width: 40,
+    marginTop: 10,
   },
   selected: {
     backgroundColor: '#FC7D8F',

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, Platform, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView, Platform, StatusBar, Pressable } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function BusadScreen() {
@@ -7,9 +7,9 @@ export default function BusadScreen() {
     <SafeAreaView style={styles.container}>
       <LinearGradient colors={['white', '#f8d2d7']}
         style={styles.background}>
-        <View style={styles.bview}>
+        <Pressable style={styles.bview} onPress={() => { }}>
           <Text style={styles.btext}>Бидний тухай</Text>
-          </View>
+        </Pressable>
       </LinearGradient>
     </SafeAreaView>
   );
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 16,
   },
-  btext:{
+  btext: {
     fontSize: 18,
     color: "#FC7D8F",
     fontWeight: "bold"
