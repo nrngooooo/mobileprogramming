@@ -207,6 +207,8 @@ const styles = StyleSheet.create({
     marginLeft: 25,
     overflow: "hidden",
     flexWrap: "wrap",
+    borderWidth: 1,
+    borderColor: "lightgray"
   },
   adpic: {
     width: 360,
@@ -218,22 +220,22 @@ const styles = StyleSheet.create({
   },
   adtext: {
     fontSize: 15,
-    color: "#2C3333"
+    color: "#003A6E"
   },
   adiconss: {
     flex: 2,
-    padding: 10,
+    padding: 8,
     flexDirection: "row",
     justifyContent: "space-around",
   },
   adlicon: {
     fontSize: 25,
-    color: "gray",
+    color: "lightgray",
     marginRight: 35,
   },
   addicon: {
     fontSize: 25,
-    color: "gray",
+    color: "lightgray",
     marginRight: 10,
   },
   zodiac: {

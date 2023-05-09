@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, ScrollView, Platform, StatusBar, Image, Pressable } from 'react-native';
 import { MaterialIcons, Ionicons, MaterialCommunityIcons, Fontisto } from "@expo/vector-icons";
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
 
 export default function ZahialgaScreen() {
   return (
@@ -73,7 +74,27 @@ export default function ZahialgaScreen() {
           </Pressable>
         </View>
       </ScrollView>
-      <ScrollView style={styles.body}></ScrollView>
+      {/* <AnimatedCircularProgress
+        size={120}
+        width={15}
+        fill={100}
+        tintColor="#00e0ff"
+        onAnimationComplete={() => console.log('onAnimationComplete')}
+        backgroundColor="#3d5875" /> */}
+      <ScrollView style={styles.body}>
+        <View style={styles.ad}>
+          <Image source={require("../images/12.jpg")}
+            style={styles.adpic}>
+          </Image>
+          <View style={styles.adiconss}>
+            <View style={styles.adtextview}>
+              <Text style={styles.adtext}>Сурталчилгаа дээр үнэлгээ өгөөрэй.</Text>
+            </View>
+            <Fontisto style={styles.adlicon} name="like"></Fontisto>
+            <Fontisto style={styles.addicon} name="dislike"></Fontisto>
+          </View>
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -135,5 +156,44 @@ const styles = StyleSheet.create({
   body: {
     backgroundColor: "white",
     height: 610,
-  }
+  },
+  ad: {
+    height: 300,
+    width: 360,
+    borderRadius: 20,
+    backgroundColor: "white",
+    overflow: "hidden",
+    flexWrap: "wrap",
+    margin: 25,
+    borderWidth: 1,
+    borderColor: "lightgray"
+  },
+  adpic: {
+    width: 360,
+    height: 240,
+    resizeMode: "stretch",
+  },
+  adtextview: {
+    width: 250,
+  },
+  adtext: {
+    fontSize: 15,
+    color: "#003A6E"
+  },
+  adiconss: {
+    flex: 2,
+    padding: 10,
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  adlicon: {
+    fontSize: 25,
+    color: "lightgray",
+    marginRight: 35,
+  },
+  addicon: {
+    fontSize: 25,
+    color: "lightgray",
+    marginRight: 10,
+  },
 })
